@@ -12,6 +12,5 @@ export const personalData = {
   twitter: 'https://twitter.com/missteresen',
   stackOverflow: '',
   leetcode: "",
-  devUsername: "",
   resume: ""
 }
