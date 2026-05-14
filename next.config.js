@@ -31,7 +31,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "img-src 'self' data: blob: https://res.cloudinary.com https://media.dev.to https://media2.dev.to",
+      "img-src 'self' data: blob: https://res.cloudinary.com",
       "font-src 'self' https://fonts.gstatic.com",
       "connect-src 'self' https://api.telegram.org https://www.google-analytics.com https://www.googletagmanager.com",
       "frame-src 'self' https://www.google.com https://www.gstatic.com",
@@ -61,16 +61,7 @@ const nextConfig = {
         hostname: 'res.cloudinary.com',
         pathname: '**',
       },
-      {
-        protocol: 'https',
-        hostname: 'media.dev.to',
-        pathname: '**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'media2.dev.to',
-        pathname: '**',
-      },
+
     ],
   },
 };

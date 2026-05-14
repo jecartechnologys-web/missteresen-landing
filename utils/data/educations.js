@@ -1,20 +1,20 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    title: "Docentes y Tutores",
+    duration: "Gestión individual",
+    institution: "Administra tus alumnos, sesiones y avances desde una sola plataforma. Diseñada para profesionales de la educación especial, terapia y tutoría.",
   },
   {
     id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
+    title: "Instituciones Educativas",
+    duration: "Gestión multi-docente",
+    institution: "Centraliza la administración de programas, profesores y alumnos. Reportes institucionales y seguimiento del desempeño académico.",
   },
   {
     id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
+    title: "Padres y Tutores",
+    duration: "Portal de seguimiento",
+    institution: "Recibe reportes, avances y comunicados directamente en tu dispositivo. Mantente al tanto del progreso sin instalar nada.",
   }
 ]
