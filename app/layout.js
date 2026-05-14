@@ -30,6 +30,10 @@ export const metadata = {
     title: "Missteresen — Gestión Educativa con IA",
     description: "Gestiona a tus alumnos, genera informes con IA y comparte avances con tutores — desde tu celular.",
   },
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
   alternates: {
     canonical: "/",
   },
