@@ -1,6 +1,56 @@
 const path = require('path')
- 
-module.exports = {
+
+const securityHeaders = [
+  {
+    key: 'X-DNS-Prefetch-Control',
+    value: 'on',
+  },
+  {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block',
+  },
+  {
+    key: 'X-Content-Type-Options',
+    value: 'nosniff',
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'SAMEORIGIN',
+  },
+  {
+    key: 'Referrer-Policy',
+    value: 'strict-origin-when-cross-origin',
+  },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=()',
+  },
+  {
+    key: 'Content-Security-Policy',
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "img-src 'self' data: blob: https://res.cloudinary.com https://media.dev.to https://media2.dev.to",
+      "font-src 'self' https://fonts.gstatic.com",
+      "connect-src 'self' https://api.telegram.org https://www.google-analytics.com https://www.googletagmanager.com",
+      "frame-src 'self' https://www.google.com https://www.gstatic.com",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+    ].join('; '),
+  },
+];
+
+const nextConfig = {
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ];
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -23,4 +73,6 @@ module.exports = {
       },
     ],
   },
-}
+};
+
+module.exports = nextConfig;

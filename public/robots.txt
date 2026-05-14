@@ -1,0 +1,10 @@
+{
+  "rules": [
+    {
+      "userAgent": "*",
+      "allow": "/",
+      "disallow": ["/api/"]
+    }
+  ],
+  "sitemap": "https://missteresen.vercel.app/sitemap.xml"
+}

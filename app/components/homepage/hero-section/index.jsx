@@ -5,9 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
-import { MdDownload } from "react-icons/md";
+import { MdRocketLaunch } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
-import { SiLeetcode } from "react-icons/si";
 
 function HeroSection() {
   return (
@@ -17,165 +16,154 @@ function HeroSection() {
         alt="Hero"
         width={1572}
         height={795}
-        className="absolute -top-[98px] -z-10"
+        className="absolute -top-[98px] -z-10 opacity-20"
       />
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            This is {' '}
-            <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>
-            .
+          <h1 className="text-3xl font-bold leading-10 text-slate-800 md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
+            Gestiona a tus alumnos, genera informes con IA y comparte avances con tutores
+            {' '}
+            <span className="text-brand-blue">desde tu celular</span>.
           </h1>
+
+          <p className="mt-6 text-slate-600 text-sm lg:text-lg max-w-xl">
+            {personalData.description}
+          </p>
 
           <div className="my-12 flex items-center gap-5">
             <Link
               href={personalData.github}
               target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
+              className="transition-all text-slate-400 hover:text-brand-blue hover:scale-125 duration-300"
             >
               <BsGithub size={30} />
             </Link>
             <Link
               href={personalData.linkedIn}
               target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
+              className="transition-all text-slate-400 hover:text-brand-blue hover:scale-125 duration-300"
             >
               <BsLinkedin size={30} />
             </Link>
             <Link
               href={personalData.facebook}
               target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
+              className="transition-all text-slate-400 hover:text-brand-blue hover:scale-125 duration-300"
             >
               <FaFacebook size={30} />
             </Link>
             <Link
-              href={personalData.leetcode}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <SiLeetcode size={30} />
-            </Link>
-            <Link
               href={personalData.twitter}
               target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
+              className="transition-all text-slate-400 hover:text-brand-blue hover:scale-125 duration-300"
             >
               <FaTwitterSquare size={30} />
             </Link>
           </div>
 
           <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                <span>Contact me</span>
+            <Link href="#contact" className="bg-gradient-to-r from-brand-blue to-brand-blue-dark p-[1px] rounded-full transition-all duration-300 hover:from-brand-green hover:to-brand-green-light">
+              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-white rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-brand-blue no-underline transition-all duration-200 ease-out md:font-semibold flex items-center gap-1 hover:gap-3">
+                <span>Solicitar Acceso Beta</span>
                 <RiContactsFill size={16} />
               </button>
             </Link>
 
-            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" target="_blank" href={personalData.resume}
+            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-brand-green to-brand-blue px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" href="#features"
             >
-              <span>Get Resume</span>
-              <MdDownload size={16} />
+              <span>Ver Funcionalidades</span>
+              <MdRocketLaunch size={16} />
             </Link>
           </div>
 
         </div>
-        <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]">
+        <div className="order-1 lg:order-2 from-white border-[#E2E8F0] relative rounded-lg border bg-gradient-to-r to-slate-50 shadow-lg">
           <div className="flex flex-row">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-            <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
+            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-brand-blue to-brand-green"></div>
+            <div className="h-[1px] w-full bg-gradient-to-r from-brand-green to-transparent"></div>
           </div>
           <div className="px-4 lg:px-8 py-5">
             <div className="flex flex-row space-x-2">
               <div className="h-3 w-3 rounded-full bg-red-400"></div>
               <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-              <div className="h-3 w-3 rounded-full bg-green-200"></div>
+              <div className="h-3 w-3 rounded-full bg-green-400"></div>
             </div>
           </div>
-          <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-            <code className="font-mono text-xs md:text-sm lg:text-base">
+          <div className="overflow-hidden border-t-[2px] border-slate-200 px-4 lg:px-8 py-4 lg:py-8">
+            <code className="font-mono text-xs md:text-sm lg:text-base text-slate-600">
               <div className="blink">
-                <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 text-white">coder</span>
-                <span className="mr-2 text-pink-500">=</span>
-                <span className="text-gray-400">{'{'}</span>
+                <span className="mr-2 text-brand-blue font-semibold">const</span>
+                <span className="mr-2 text-slate-800">missteresen</span>
+                <span className="mr-2 text-brand-blue font-semibold">=</span>
+                <span className="text-slate-400">{'{'}</span>
               </div>
               <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-                <span className="text-gray-400">{`'`}</span>
-                <span className="text-amber-300">Abu Said</span>
-                <span className="text-gray-400">{`',`}</span>
+                <span className="ml-4 lg:ml-8 mr-2 text-slate-800">plataforma:</span>
+                <span className="text-slate-400">{`'`}</span>
+                <span className="text-brand-green">Gestión Educativa</span>
+                <span className="text-slate-400">{`',`}</span>
               </div>
               <div className="ml-4 lg:ml-8 mr-2">
-                <span className=" text-white">skills:</span>
-                <span className="text-gray-400">{`['`}</span>
-                <span className="text-amber-300">React</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NextJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Redux</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Express</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NestJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MySql</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MongoDB</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Docker</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">AWS</span>
-                <span className="text-gray-400">{"'],"}</span>
+                <span className="text-slate-800">tecnologías:</span>
+                <span className="text-slate-400">{`['`}</span>
+                <span className="text-brand-green">Flutter</span>
+                <span className="text-slate-400">{"', '"}</span>
+                <span className="text-brand-green">Firebase</span>
+                <span className="text-slate-400">{"', '"}</span>
+                <span className="text-brand-green">Dart</span>
+                <span className="text-slate-400">{"', '"}</span>
+                <span className="text-brand-green">Groq AI</span>
+                <span className="text-slate-400">{"', '"}</span>
+                <span className="text-brand-green">AES-256</span>
+                <span className="text-slate-400">{"'],"}</span>
               </div>
               <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
+                <span className="ml-4 lg:ml-8 mr-2 text-slate-800">enTiempoReal:</span>
+                <span className="text-brand-blue">true</span>
+                <span className="text-slate-400">,</span>
               </div>
               <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
+                <span className="ml-4 lg:ml-8 mr-2 text-slate-800">modoOffline:</span>
+                <span className="text-brand-blue">true</span>
+                <span className="text-slate-400">,</span>
               </div>
               <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
+                <span className="ml-4 lg:ml-8 mr-2 text-slate-800">iaIntegrada:</span>
+                <span className="text-brand-blue">true</span>
+                <span className="text-slate-400">,</span>
               </div>
               <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-green-400">hireable:</span>
-                <span className="text-orange-400">function</span>
-                <span className="text-gray-400">{'() {'}</span>
+                <span className="ml-4 lg:ml-8 mr-2 text-brand-green">features:</span>
+                <span className="text-brand-blue">function</span>
+                <span className="text-slate-400">{'() {'}</span>
               </div>
               <div>
-                <span className="ml-8 lg:ml-16 mr-2 text-orange-400">return</span>
-                <span className="text-gray-400">{`(`}</span>
+                <span className="ml-8 lg:ml-16 mr-2 text-brand-blue">return</span>
+                <span className="text-slate-400">{`[`}</span>
               </div>
               <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">hardWorker</span>
-                <span className="text-amber-300">&amp;&amp;</span>
+                <span className="ml-12 lg:ml-24 text-brand-blue">this.</span>
+                <span className="mr-2 text-slate-800">alumnos</span>
+                <span className="text-brand-green">,</span>
               </div>
               <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">problemSolver</span>
-                <span className="text-amber-300">&amp;&amp;</span>
+                <span className="ml-12 lg:ml-24 text-brand-blue">this.</span>
+                <span className="mr-2 text-slate-800">sesiones</span>
+                <span className="text-brand-green">,</span>
               </div>
               <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">skills.length</span>
-                <span className="mr-2 text-amber-300">&gt;=</span>
-                <span className="text-orange-400">5</span>
+                <span className="ml-12 lg:ml-24 text-brand-blue">this.</span>
+                <span className="mr-2 text-slate-800">iaHub</span>
+                <span className="text-brand-green">,</span>
               </div>
-              <div><span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span></div>
-              <div><span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span></div>
-              <div><span className="text-gray-400">{`};`}</span></div>
+              <div>
+                <span className="ml-12 lg:ml-24 text-brand-blue">this.</span>
+                <span className="mr-2 text-slate-800">reportesPDF</span>
+              </div>
+              <div><span className="ml-8 lg:ml-16 mr-2 text-slate-400">{`];`}</span></div>
+              <div><span className="ml-4 lg:ml-8 text-slate-400">{`};`}</span></div>
+              <div><span className="text-slate-400">{`};`}</span></div>
             </code>
           </div>
         </div>

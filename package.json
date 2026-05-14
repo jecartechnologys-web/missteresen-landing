@@ -1,6 +1,6 @@
 {
-  "name": "developer-portfolio",
-  "description": "Portfolio of Abu Said",
+  "name": "missteresen-landing",
+  "description": "Landing page de Missteresen — Plataforma de Gestión Educativa con IA",
   "version": "0.1.0",
   "private": true,
   "scripts": {

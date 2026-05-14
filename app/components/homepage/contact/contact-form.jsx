@@ -40,7 +40,7 @@ function ContactForm() {
         userInput
       );
 
-      toast.success("Message sent successfully!");
+      toast.success("¡Mensaje enviado con éxito! Te contactaremos pronto.");
       setUserInput({
         name: "",
         email: "",
@@ -55,14 +55,14 @@ function ContactForm() {
 
   return (
     <div>
-      <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">Contact with me</p>
-      <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
-        <p className="text-sm text-[#d3d8e8]">{"If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."}</p>
+      <p className="font-medium mb-5 text-brand-green text-xl uppercase">Solicita Acceso Beta</p>
+      <div className="max-w-3xl rounded-lg border border-slate-200 bg-white p-3 lg:p-5 shadow-sm">
+        <p className="text-sm text-slate-600">¿Te interesa probar Missteresen? Déjanos tus datos y te contactaremos con acceso anticipado y una demo personalizada.</p>
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Name: </label>
+            <label className="text-base text-slate-700">Nombre: </label>
             <input
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
+              className="bg-slate-50 w-full border rounded-md border-slate-300 focus:border-brand-blue ring-0 outline-0 transition-all duration-300 px-3 py-2 text-slate-800"
               type="text"
               maxLength="100"
               required={true}
@@ -73,9 +73,9 @@ function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Email: </label>
+            <label className="text-base text-slate-700">Email: </label>
             <input
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
+              className="bg-slate-50 w-full border rounded-md border-slate-300 focus:border-brand-blue ring-0 outline-0 transition-all duration-300 px-3 py-2 text-slate-800"
               type="email"
               maxLength="100"
               required={true}
@@ -86,13 +86,13 @@ function ContactForm() {
                 setError({ ...error, email: !isValidEmail(userInput.email) });
               }}
             />
-            {error.email && <p className="text-sm text-red-400">Please provide a valid email!</p>}
+            {error.email && <p className="text-sm text-red-500">Ingresa un email válido.</p>}
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Message: </label>
+            <label className="text-base text-slate-700">Mensaje: </label>
             <textarea
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
+              className="bg-slate-50 w-full border rounded-md border-slate-300 focus:border-brand-blue ring-0 outline-0 transition-all duration-300 px-3 py-2 text-slate-800"
               maxLength="500"
               name="message"
               required={true}
@@ -103,20 +103,20 @@ function ContactForm() {
             />
           </div>
           <div className="flex flex-col items-center gap-3">
-            {error.required && <p className="text-sm text-red-400">
-              All fiels are required!
+            {error.required && <p className="text-sm text-red-500">
+              Todos los campos son obligatorios.
             </p>}
             <button
-              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
+              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-brand-green to-brand-blue px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
               role="button"
               onClick={handleSendMail}
               disabled={isLoading}
             >
               {
                 isLoading ?
-                <span>Sending Message...</span>:
+                <span>Enviando...</span>:
                 <span className="flex items-center gap-1">
-                  Send Message
+                  Solicitar Acceso
                   <TbMailForward size={20} />
                 </span>
               }
