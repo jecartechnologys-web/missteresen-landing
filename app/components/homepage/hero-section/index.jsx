@@ -62,13 +62,13 @@ function HeroSection() {
 
           <div className="flex items-center gap-3">
             <Link href="#contact" className="bg-gradient-to-r from-brand-blue to-brand-blue-dark p-[1px] rounded-full transition-all duration-300 hover:from-brand-green hover:to-brand-green-light">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-white rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-brand-blue no-underline transition-all duration-200 ease-out md:font-semibold flex items-center gap-1 hover:gap-3">
+              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-white rounded-full border-2 border-brand-blue text-center md:text-sm font-bold uppercase tracking-wider text-brand-blue no-underline transition-all duration-200 ease-out md:font-semibold flex items-center gap-1 hover:gap-3">
                 <span>Solicitar Acceso Beta</span>
                 <RiContactsFill size={16} />
               </button>
             </Link>
 
-            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-brand-green to-brand-blue px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" href="#features"
+            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-brand-green to-brand-blue px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-bold uppercase tracking-wider text-slate-900 no-underline transition-all duration-200 ease-out hover:text-slate-900 hover:no-underline md:font-semibold" role="button" href="#features"
             >
               <span>Ver Funcionalidades</span>
               <MdRocketLaunch size={16} />

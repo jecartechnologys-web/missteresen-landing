@@ -147,7 +147,7 @@ function ContactForm() {
               Todos los campos son obligatorios.
             </p>}
             <button
-              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-brand-green to-brand-blue px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
+              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-brand-green to-brand-blue px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-bold uppercase tracking-wider text-black no-underline transition-all duration-200 ease-out hover:text-black hover:no-underline md:font-semibold"
               role="button"
               onClick={handleSendMail}
               disabled={isLoading}
