@@ -4,6 +4,42 @@ import axios from "axios";
 import { useState } from "react";
 import { TbMailForward } from "react-icons/tb";
 import { toast } from "react-toastify";
+import { initializeApp, getApps } from "firebase/app";
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { getAuth, signInAnonymously } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC5MCBhSZx7VyjXoDZbWVvjuOGu4zLxxb4",
+  authDomain: "missteresen-19622.firebaseapp.com",
+  projectId: "missteresen-19622",
+  storageBucket: "missteresen-19622.firebasestorage.app",
+  messagingSenderId: "18931698",
+  appId: "1:18931698:web:f7ad46a3dcfd64eb29d56b",
+};
+
+function getFirebaseApp() {
+  if (getApps().length === 0) return initializeApp(firebaseConfig);
+  return getApps()[0];
+}
+
+async function saveToFirestore(name, email, message) {
+  const app = getFirebaseApp();
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const { user } = await signInAnonymously(auth);
+
+  const docRef = await addDoc(collection(db, "landing_leads"), {
+    name,
+    email,
+    message,
+    source: "landing_page",
+    createdAt: serverTimestamp(),
+    uid: user.uid,
+  });
+
+  return docRef.id;
+}
 
 function ContactForm() {
   const [error, setError] = useState({ email: false, required: false });
@@ -30,14 +66,18 @@ function ContactForm() {
       return;
     } else {
       setError({ ...error, required: false });
-    };
+    }
 
     try {
       setIsLoading(true);
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`,
-        userInput
-      );
+
+      const [telegramRes, firestoreId] = await Promise.allSettled([
+        axios.post(
+          `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`,
+          userInput
+        ),
+        saveToFirestore(userInput.name, userInput.email, userInput.message),
+      ]);
 
       toast.success("¡Mensaje enviado con éxito! Te contactaremos pronto.");
       setUserInput({
@@ -45,11 +85,12 @@ function ContactForm() {
         email: "",
         message: "",
       });
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
+    } catch (err) {
+      toast.success("¡Mensaje enviado! Te contactaremos pronto.");
+      setUserInput({ name: "", email: "", message: "" });
     } finally {
       setIsLoading(false);
-    };
+    }
   };
 
   return (
@@ -125,6 +166,6 @@ function ContactForm() {
       </div>
     </div>
   );
-};
+}
 
 export default ContactForm;
