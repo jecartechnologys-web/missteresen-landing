@@ -1,10 +1,20 @@
 import axios from 'axios';
 
-const FIRESTORE_URL = 'https://firestore.googleapis.com/v1/projects/missteresen-19622/databases/(default)/documents';
 const API_KEY = 'AIzaSyC5MCBhSZx7VyjXoDZbWVvjuOGu4zLxxb4';
+const AUTH_URL = 'https://identitytoolkit.googleapis.com/v1';
+const FIRESTORE_URL = 'https://firestore.googleapis.com/v1/projects/missteresen-19622/databases/(default)/documents';
+
+async function getAnonymousToken() {
+  const res = await axios.post(`${AUTH_URL}/accounts:signUp?key=${API_KEY}`, {
+    returnSecureToken: true,
+  });
+  return res.data.idToken;
+}
 
 export async function saveLead({ name, email, message }) {
   try {
+    const idToken = await getAnonymousToken();
+
     const res = await axios.post(
       `${FIRESTORE_URL}/landing_leads`,
       {
@@ -17,7 +27,9 @@ export async function saveLead({ name, email, message }) {
         },
       },
       {
-        params: { key: API_KEY },
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
         timeout: 10000,
       }
     );
