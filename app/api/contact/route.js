@@ -29,12 +29,11 @@ export async function POST(request) {
 
     const results = [];
 
-    try {
-      const leadId = await saveLead({ name, email, message: userMessage });
-      results.push(`Firestore: ${leadId}`);
-    } catch (fbError) {
-      console.error('Firestore error:', fbError.message);
-      results.push('Firestore: error');
+    const fbResult = await saveLead({ name, email, message: userMessage });
+    if (fbResult.ok) {
+      results.push(`Firestore: ${fbResult.id}`);
+    } else {
+      results.push(`Firestore: ${fbResult.error}`);
     }
 
     if (token && chat_id) {
