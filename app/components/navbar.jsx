@@ -25,7 +25,7 @@ function Navbar() {
           </li>
           <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills">
-              <span className="text-sm font-medium text-slate-500 transition-colors duration-300 hover:text-brand-blue">Tecnologías</span>
+              <span className="text-sm font-medium text-slate-500 transition-colors duration-300 hover:text-brand-blue">Galería</span>
             </Link>
           </li>
           <li>
