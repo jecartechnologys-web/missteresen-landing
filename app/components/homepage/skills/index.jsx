@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Marquee from "react-fast-marquee";
 
 const screenshots = Array.from({ length: 26 }, (_, i) => ({
   src: `/screenshots/screenshot-${i + 1}.${i === 0 ? 'png' : 'jpeg'}`,
@@ -16,23 +17,31 @@ function Skills() {
           Mira cómo funciona Missteresen
         </h2>
         <p className="mt-4 text-slate-500 max-w-2xl mx-auto text-sm lg:text-base">
-          Estas son algunas pantallas reales de la aplicación. Todo lo que necesitas para gestionar tus alumnos desde un solo lugar.
+          Estas son algunas pantallas reales de la aplicación.
         </p>
       </div>
 
-      <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-        {screenshots.map((img, i) => (
-          <div key={i} className="break-inside-avoid rounded-xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={400}
-              height={800}
-              className="w-full h-auto"
-              loading={i < 8 ? "eager" : "lazy"}
-            />
-          </div>
-        ))}
+      <div className="py-6 border-y border-slate-100">
+        <Marquee
+          gradient={false}
+          speed={40}
+          pauseOnHover={true}
+          pauseOnClick={true}
+          play={true}
+          direction="left"
+        >
+          {screenshots.map((img, i) => (
+            <div key={i} className="mx-3 w-48 lg:w-56 flex-shrink-0 rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-xl transition-shadow duration-300">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={224}
+                height={450}
+                className="w-full h-auto"
+              />
+            </div>
+          ))}
+        </Marquee>
       </div>
     </div>
   );
