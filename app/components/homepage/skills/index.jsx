@@ -5,29 +5,23 @@ import Marquee from "react-fast-marquee";
 
 function Skills() {
   return (
-    <div id="skills" className="relative z-50 border-t my-12 lg:my-24 border-brand-blue/20">
-      <div className="w-[100px] h-[100px] bg-brand-blue/20 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl opacity-20"></div>
-
-      <div className="flex justify-center -translate-y-[1px]">
-        <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-brand-blue to-transparent w-full" />
-        </div>
+    <div id="skills" className="relative my-16 lg:my-32">
+      <div className="text-center mb-12">
+        <p className="text-brand-green font-semibold text-sm uppercase tracking-wider mb-3">
+          Tecnologías
+        </p>
+        <h2 className="text-3xl lg:text-4xl font-bold text-slate-900">
+          Construido con lo mejor de la tecnología
+        </h2>
+        <p className="mt-4 text-slate-500 max-w-2xl mx-auto text-sm lg:text-base">
+          Missteresen integra herramientas modernas para ofrecerte una experiencia rápida, segura y confiable.
+        </p>
       </div>
 
-      <div className="flex justify-center my-5 lg:py-8">
-        <div className="flex items-center">
-          <span className="w-24 h-[2px] bg-brand-blue/40"></span>
-          <span className="bg-brand-blue w-fit text-white p-2 px-5 text-xl rounded-md">
-            Tecnologías
-          </span>
-          <span className="w-24 h-[2px] bg-brand-blue/40"></span>
-        </div>
-      </div>
-
-      <div className="w-full my-12">
+      <div className="w-full py-8 border-y border-slate-100">
         <Marquee
           gradient={false}
-          speed={80}
+          speed={60}
           pauseOnHover={true}
           pauseOnClick={true}
           delay={0}
@@ -35,15 +29,10 @@ function Skills() {
           direction="left"
         >
           {skillsData.map((skill, id) => (
-            <div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
+            <div className="w-32 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-300 m-3 sm:m-5 rounded-xl group relative hover:scale-110 cursor-pointer"
               key={id}>
-              <div className="h-full w-full rounded-lg border border-slate-200 bg-white shadow-sm group-hover:border-brand-blue transition-all duration-500">
-                <div className="flex -translate-y-[1px] justify-center">
-                  <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-brand-blue to-transparent" />
-                  </div>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-3 p-6">
+              <div className="h-full w-full rounded-xl border border-slate-100 bg-white shadow-sm group-hover:border-brand-blue/30 group-hover:shadow-md transition-all duration-300 p-4">
+                <div className="flex flex-col items-center justify-center gap-2">
                   <div className="h-8 sm:h-10">
                     <Image
                       src={skillsImage(skill)?.src}
@@ -53,7 +42,7 @@ function Skills() {
                       className="h-full w-auto rounded-lg"
                     />
                   </div>
-                  <p className="text-slate-700 text-sm sm:text-lg">
+                  <p className="text-slate-500 text-xs sm:text-sm font-medium">
                     {skill}
                   </p>
                 </div>

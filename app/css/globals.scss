@@ -3,7 +3,10 @@
 :root {
   --foreground-rgb: 15, 23, 42;
   --brand-blue: #2563EB;
+  --brand-blue-dark: #1D4ED8;
   --brand-green: #059669;
+  --brand-green-light: #10B981;
+  --brand-dark: #0F172A;
   --brand-light: #F8FAFC;
 }
 
@@ -12,39 +15,6 @@ body {
   background-color: #FFFFFF;
 }
 
-#sticky-card-1 {
-  --index: 1;
-}
-
-#sticky-card-2 {
-  --index: 2;
-}
-
-#sticky-card-3 {
-  --index: 3;
-}
-
-#sticky-card-4 {
-  --index: 4;
-}
-
-#sticky-card-5 {
-  --index: 5;
-}
-
-#sticky-card-6 {
-  --index: 6;
-}
-
-#sticky-card-7 {
-  --index: 7;
-}
-
-#sticky-card-8 {
-  --index: 8;
-}
-
-.sticky-card {
-  // padding-top: calc(var(--index) * 2.5rem);
-  top: calc(var(--index) * 4rem);
+html {
+  scroll-behavior: smooth;
 }
